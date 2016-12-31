@@ -197,7 +197,19 @@ class ToolLibraryManager():
             if parms.GetContents()[0][2]==0:
                 suffix = 'mm'
                 conversion = 1.0
+            elif parms.GetContents()[0][2]==1:
+                suffix = 'mm'
+                conversion = 1.0
+            elif parms.GetContents()[0][2]==2:
+                suffix = 'in'
+                conversion = 25.4
             elif parms.GetContents()[0][2]==3:
+                suffix = 'in'
+                conversion = 25.4
+            elif parms.GetContents()[0][2]==4:
+                suffix = 'mm'
+                conversion = 1.0
+            elif parms.GetContents()[0][2]==5:
                 suffix = 'in'
                 conversion = 25.4
             else:
@@ -418,7 +430,7 @@ class EditorPanel():
             t.LengthOffset = FreeCAD.Units.parseQuantity(editform.LengthOffsetField.text())
             t.FlatRadius = FreeCAD.Units.parseQuantity(editform.FlatRadiusField.text())
             t.CornerRadius = FreeCAD.Units.parseQuantity(editform.CornerRadiusField.text())
-            t.CuttingEdgeAngle = editform.CuttingEdgeAngleField.value()
+            t.CuttingEdgeAngle = FreeCAD.Units.parseQuantity(editform.CuttingEdgeAngleField.text())
             t.CuttingEdgeHeight = FreeCAD.Units.parseQuantity(editform.CuttingEdgeHeightField.text())
 
             listname = self.form.listView.selectedIndexes()[0].data()
@@ -484,7 +496,7 @@ class EditorPanel():
         editform.LengthOffsetField.setText(str(tool.LengthOffset))
         editform.FlatRadiusField.setText(str(tool.FlatRadius))
         editform.CornerRadiusField.setText(str(tool.CornerRadius))
-        editform.CuttingEdgeAngleField.setValue(tool.CuttingEdgeAngle)
+        editform.CuttingEdgeAngleField.setText(str(tool.CuttingEdgeAngle))
         editform.CuttingEdgeHeightField.setText(str(tool.CuttingEdgeHeight))
 
         r = editform.exec_()
@@ -497,7 +509,7 @@ class EditorPanel():
             tool.LengthOffset = FreeCAD.Units.parseQuantity(editform.LengthOffsetField.text())
             tool.FlatRadius = FreeCAD.Units.parseQuantity(editform.FlatRadiusField.text())
             tool.CornerRadius = FreeCAD.Units.parseQuantity(editform.CornerRadiusField.text())
-            tool.CuttingEdgeAngle = editform.CuttingEdgeAngleField.value()
+            tool.CuttingEdgeAngle = FreeCAD.Units.parseQuantity(editform.CuttingEdgeAngleField.text())
             tool.CuttingEdgeHeight = FreeCAD.Units.parseQuantity(editform.CuttingEdgeHeightField.text())
 
             if self.TLM.updateTool(listname, toolnum, tool) is True:

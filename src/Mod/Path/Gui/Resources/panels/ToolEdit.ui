@@ -195,13 +195,6 @@
         </property>
        </widget>
       </item>
-      <item row="16" column="1">
-       <widget class="QDoubleSpinBox" name="CuttingEdgeAngleField">
-        <property name="suffix">
-         <string>°</string>
-        </property>
-       </widget>
-      </item>
       <item row="18" column="0">
        <widget class="QLabel" name="label_8">
         <property name="text">
@@ -211,8 +204,11 @@
       </item>
       <item row="6" column="1">
        <widget class="Gui::InputField" name="DiameterField">
+        <property name="inputMethodHints">
+         <set>Qt::ImhNone</set>
+        </property>
         <property name="text">
-         <string>0 mm</string>
+         <string>6.35 mm</string>
         </property>
         <property name="singleStep">
          <double>0.125000000000000</double>
@@ -225,6 +221,9 @@
         </property>
         <property name="unit" stdset="0">
          <string notr="true">mm</string>
+        </property>
+        <property name="quantity" stdset="0">
+         <double>6.350000000000000</double>
         </property>
        </widget>
       </item>
@@ -279,7 +278,7 @@
       <item row="18" column="1">
        <widget class="Gui::InputField" name="CuttingEdgeHeightField">
         <property name="text">
-         <string>0 mm</string>
+         <string>25.4 mm</string>
         </property>
         <property name="maximum">
          <double>100.000000000000000</double>
@@ -289,6 +288,22 @@
         </property>
         <property name="unit" stdset="0">
          <string notr="true">mm</string>
+        </property>
+        <property name="quantity" stdset="0">
+         <double>25.399999999999999</double>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="1">
+       <widget class="Gui::InputField" name="CuttingEdgeAngleField">
+        <property name="maximum">
+         <double>180.000000000000000</double>
+        </property>
+        <property name="minimum">
+         <double>0.000000000000000</double>
+        </property>
+        <property name="unit" stdset="0">
+         <string notr="true">deg</string>
         </property>
        </widget>
       </item>
